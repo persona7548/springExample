@@ -1,11 +1,15 @@
 package com.taehyun.springdata.product.repos;
 
 import com.taehyun.springdata.product.entities.Product;
+import org.springframework.data.domain.Page;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
-public interface ProductRepository extends CrudRepository<Product, Integer> {
+
+public interface ProductRepository extends PagingAndSortingRepository<Product, Integer> {
 
     List<Product> findByName(String name);
 
@@ -20,6 +24,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     List<Product> findByDescLike(String desc);
 
     List<Product> findByIdIn(List<Integer> ids);
-
 
 }
